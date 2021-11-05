@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:fillViewport="true"
+    android:focusableInTouchMode="true"
+    android:scrollbarStyle="insideOverlay"
+    tools:context=".NewPlantActivity"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F0EFF4">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="648dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.057"
+            app:srcCompat="@mipmap/newtask" />
+
+        <EditText
+            android:id="@+id/plantNameText"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="580dp"
+            android:background="@drawable/back2"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            android:text=""
+            android:textCursorDrawable="@drawable/back_cursor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="129dp" />
+
+        <TextView
+            android:id="@+id/plantNameLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="20dp"
+            android:background="#F0EFF4"
+            android:fontFamily="@font/inder"
+            android:text=" Plant Name "
+            android:textColor="#00994D"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="TextContrastCheck" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="179dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/plantNameText"
+            app:srcCompat="@mipmap/periodiccare" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            android:elevation="0dp"
+            app:cardBackgroundColor="#F0F0F0"
+            app:cardCornerRadius="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView4"
+            app:layout_constraintVertical_bias="0.0">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="23dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@mipmap/water" />
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="23dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView7"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@mipmap/waterlabel" />
+
+                <Switch
+                    android:id="@+id/waterSwitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/waterCard"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="20dp"
+            app:cardCornerRadius="5dp"
+            app:layout_constraintBottom_toTopOf="@+id/cardView3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:id="@+id/waterFrequencyText"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:textCursorDrawable="@drawable/back_cursor"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/back_grey"
+                    android:ems="10"
+                    android:fontFamily="@font/poppins"
+                    android:hint="0"
+                    android:inputType="number"
+                    android:padding="10dp"
+                    android:textColorHint="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintBottom_toTopOf="@+id/waterAmountText"
+                    app:layout_constraintEnd_toEndOf="@+id/waterFrequencyText"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.54"
+                    app:srcCompat="@mipmap/days" />
+
+                <EditText
+                    android:id="@+id/waterAmountText"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:textCursorDrawable="@drawable/back_cursor"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/back_grey"
+                    android:ems="10"
+                    android:fontFamily="@font/poppins"
+                    android:hint="0"
+                    android:inputType="number"
+                    android:padding="10dp"
+                    android:textColorHint="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/waterFrequencyText" />
+
+                <ImageView
+                    android:id="@+id/imageView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/waterAmountText"
+                    app:layout_constraintEnd_toEndOf="@+id/waterAmountText"
+                    app:layout_constraintTop_toTopOf="@+id/waterAmountText"
+                    app:srcCompat="@mipmap/ml" />
+
+                <TextView
+                    android:id="@+id/waterFrequencyLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#ffff"
+                    android:fontFamily="@font/inder"
+                    android:text=" Frequency "
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.006" />
+
+                <TextView
+                    android:id="@+id/waterAmountLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#ffff"
+                    android:fontFamily="@font/inder"
+                    android:text=" Water Amount "
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/waterFrequencyText"
+                    app:layout_constraintVertical_bias="0.0" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView3"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            app:cardBackgroundColor="#F0F0F0"
+            app:cardCornerRadius="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/waterCard">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="23dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@mipmap/feed" />
+
+                <ImageView
+                    android:id="@+id/imageView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="23dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView9"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@mipmap/feeding" />
+
+                <Switch
+                    android:id="@+id/feedSwitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/feedcard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="46dp"
+            app:cardCornerRadius="5dp"
+            app:layout_constraintBottom_toTopOf="@+id/saveButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView3">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:id="@+id/feedFrequencyText"
+                    android:layout_width="0dp"
+                    android:textCursorDrawable="@drawable/back_cursor"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/back_grey"
+                    android:ems="10"
+                    android:fontFamily="@font/poppins"
+                    android:hint="0"
+                    android:inputType="number"
+                    android:padding="10dp"
+                    android:textColorHint="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/feedFrequencyText"
+                    app:layout_constraintEnd_toEndOf="@+id/feedFrequencyText"
+                    app:layout_constraintTop_toTopOf="@+id/feedFrequencyText"
+                    app:srcCompat="@mipmap/days" />
+
+                <EditText
+                    android:id="@+id/feedAmountText"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="20dp"
+                    android:textCursorDrawable="@drawable/back_cursor"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/back_grey"
+                    android:ems="10"
+                    android:fontFamily="@font/poppins"
+                    android:hint="0"
+                    android:inputType="number"
+                    android:padding="10dp"
+                    android:textColorHint="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/feedFrequencyText" />
+
+                <ImageView
+                    android:id="@+id/imageView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/feedAmountText"
+                    app:layout_constraintEnd_toEndOf="@+id/feedAmountText"
+                    app:layout_constraintTop_toTopOf="@+id/feedAmountText"
+                    app:srcCompat="@mipmap/gram" />
+
+                <TextView
+                    android:id="@+id/feedFrequencyLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#ffff"
+                    android:fontFamily="@font/inder"
+                    android:text=" Frequency  "
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.006" />
+
+                <TextView
+                    android:id="@+id/feedAmountLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#ffff"
+                    android:fontFamily="@font/inder"
+                    android:text=" Feed Amount "
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/feedFrequencyText" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <ImageButton
+            android:id="@+id/saveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="16dp"
+            android:background="@android:color/transparent"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/feedcard"
+            app:srcCompat="@mipmap/save"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <ImageButton
+            android:id="@+id/cancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:background="@android:color/transparent"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/saveButton"
+            app:srcCompat="@mipmap/cancel"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0EFF4"
+    tools:context=".TaskDetailsActivity">
+
+    <ImageView
+        android:id="@+id/imageView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="650dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/backButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/tasksblack" />
+
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginStart="20dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="650dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/back" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="105dp"
+        android:layout_height="204dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="123dp"
+        android:layout_marginEnd="128dp"
+        android:layout_marginBottom="312dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/cactus" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/detailsNameText"
+                android:gravity="center"
+                android:textColor="#00994D"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Moon Cactus" />
+
+            <TextView
+                android:id="@+id/typeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="15dp"
+                android:textAlignment="center"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:text="Watering" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/typeImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="150dp"
+                    android:layout_marginEnd="6dp"
+                    android:layout_marginBottom="2dp"
+                    android:foregroundGravity="center"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/periodText"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@mipmap/watergreen" />
+
+                <TextView
+                    android:id="@+id/periodText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="170dp"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center"
+                    android:text="17 day(s) . 200ml"
+                    android:textAlignment="center"
+                    android:textSize="15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/typeImage"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageButton
+                android:id="@+id/completeButton"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@android:color/transparent"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+
+                app:srcCompat="@mipmap/markdone" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
