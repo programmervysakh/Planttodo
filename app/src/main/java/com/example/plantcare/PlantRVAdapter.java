@@ -64,7 +64,7 @@ public class PlantRVAdapter extends RecyclerView.Adapter<PlantRVAdapter.ViewHold
                 holder.waterPeriodicText.setText(modal.getWaterFrequency() + " day(s) . " + modal.getWaterAmount() + " ml");
                // calendar.add(Calendar.DATE ,Integer.parseInt(modal.getWaterFrequency()));
 
-                Log.i("HAAHAH",modal.getCurrentDate() +currentDate );
+                Log.i("FindDate",modal.getCurrentDate() +currentDate );
 
                 if (currentDate.equals(modal.getCurrentDate())) {
 

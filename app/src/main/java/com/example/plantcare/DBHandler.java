@@ -59,7 +59,18 @@ public class DBHandler extends SQLiteOpenHelper {
         // an sqlite query and we are
         // setting our column names
         // along with their data types.
-        String query = "CREATE TABLE " + TABLE_NAME + " (" + ID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, " + NAME_COL + " TEXT," + DATE_COL + " TEXT," + WATER_FREQUENCY_COL + " TEXT," + WATER_AMOUNT_COL + " TEXT," + FEED_FREQ_COL + " TEXT," + FEED_AMOUNT_COL + " TEXT," + STATUS_COL + " TEXT) ";
+        String query = "CREATE TABLE " + TABLE_NAME + " (" + ID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                " " + NAME_COL
+                + " TEXT,"
+                + DATE_COL
+                + " TEXT,"
+                + WATER_FREQUENCY_COL
+                + " TEXT,"
+                + WATER_AMOUNT_COL
+                + " TEXT,"
+                + FEED_FREQ_COL
+                + " TEXT," + FEED_AMOUNT_COL + " TEXT,"
+                + STATUS_COL + " TEXT) ";
 
         // at last we are calling a exec sql
         // method to execute above sql query

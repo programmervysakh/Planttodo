@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
        Handler handler = new Handler();
         Runnable r = new Runnable() {
             public void run() {
-                Intent loginIntent = new Intent(getApplicationContext(),LoginActivity.class);
+                Intent loginIntent = new Intent(getApplicationContext(),HomeActivity.class);
                 startActivity(loginIntent);
             }
         };

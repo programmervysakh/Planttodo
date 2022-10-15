@@ -325,12 +325,12 @@ public class NewPlantActivity extends AppCompatActivity {
                         feedFrequency = mFeedFrequencyText.getText().toString();
                         feedAmount = mFeedAmountText.getText().toString();
                         int i;
-                        for ( i = 1; i <= 30 / Integer.parseInt(waterFrequency); i++) {
+                        for (i = 1; i <= 30 / Integer.parseInt(waterFrequency); i++) {
                             callWaterFeedDb();
                         }
-                            for ( int j= 1; j <= 30 / Integer.parseInt(feedFrequency); j++) {
-                                callFeedDb2();
-                            }
+                        for (int j = 1; j <= 30 / Integer.parseInt(feedFrequency); j++) {
+                            callFeedDb2();
+                        }
 
                     }
                 } else {
@@ -394,6 +394,7 @@ public class NewPlantActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
     private void callWaterFeedDb() {
         try {
             dbHandler.addNewPlant(plantName, currentDate, waterFrequency, waterAmount, null, feedAmount, "new");
