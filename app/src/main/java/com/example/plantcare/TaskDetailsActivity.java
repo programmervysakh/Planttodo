@@ -56,6 +56,7 @@ public class TaskDetailsActivity extends AppCompatActivity {
                 mTypeImage.setImageResource(R.mipmap.watergreen);
             } else {
                 mTypeImage.setImageResource(R.mipmap.feedgreen);
+              //  mDetailsPlantNameText.getText().toString().replaceAll("feed","");
             }
         }
 
@@ -70,7 +71,13 @@ public class TaskDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                dbHandler.updatePlants(name,date,"Done");
+                if (type.equals("Watering")) {
+                    dbHandler.updatePlants(name, date, "Done");
+                }
+                else {
+                    dbHandler.updatePlants(name+"feed", date, "Done");
+
+                }
 
                 Intent i = new Intent(getApplicationContext(),HomeActivity.class);
                 startActivity(i);

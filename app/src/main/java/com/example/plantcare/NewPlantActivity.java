@@ -282,6 +282,7 @@ public class NewPlantActivity extends AppCompatActivity {
         mSaveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (mWaterSwitch.isChecked() && !mFeedSwitch.isChecked()) {
                     //  Toast.makeText(getApplicationContext(),"water is checked",Toast.LENGTH_LONG).show();
 
@@ -295,10 +296,10 @@ public class NewPlantActivity extends AppCompatActivity {
 
                         for (int i = 1; i <= 30 / Integer.parseInt(waterFrequency); i++) {
 
-
                             Log.i("FAAAA", currentDate.toString());
                             callWaterDb();
                         }
+                        Toast.makeText(getApplicationContext(), "Reminder Set!", Toast.LENGTH_SHORT).show();
 
                     } else {
                         Toast.makeText(getApplicationContext(), "Please fill all the details", Toast.LENGTH_LONG).show();
@@ -314,6 +315,8 @@ public class NewPlantActivity extends AppCompatActivity {
                         for (int i = 1; i <= 30 / Integer.parseInt(feedFrequency); i++) {
                             callFeedDb();
                         }
+                        Toast.makeText(getApplicationContext(), "Reminder Set!", Toast.LENGTH_SHORT).show();
+
                     } else {
                         Toast.makeText(getApplicationContext(), "Please fill all the details", Toast.LENGTH_LONG).show();
                     }
@@ -333,10 +336,11 @@ public class NewPlantActivity extends AppCompatActivity {
                         }
 
                     }
+                    Toast.makeText(getApplicationContext(), "Reminder Set!", Toast.LENGTH_SHORT).show();
+
                 } else {
                     Toast.makeText(getApplicationContext(), "Please fill all the details", Toast.LENGTH_LONG).show();
                 }
-
             }
 
         });
@@ -354,12 +358,10 @@ public class NewPlantActivity extends AppCompatActivity {
         try {
 
             dbHandler.addNewPlant(plantName, currentDate, waterFrequency, waterAmount, feedFrequency, feedAmount, "new");
-            Toast.makeText(getApplicationContext(), "Reminder Set!", Toast.LENGTH_SHORT).show();
             calendar.add(Calendar.DATE, Integer.parseInt(waterFrequency));
             currentDate = dateFormat.format(calendar.getTime());
             Intent homeIntent = new Intent(getApplicationContext(), HomeActivity.class);
             startActivity(homeIntent);
-
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -369,12 +371,10 @@ public class NewPlantActivity extends AppCompatActivity {
     private void callFeedDb() {
         try {
             dbHandler.addNewPlant(plantName, currentDateFeed, waterFrequency, waterAmount, feedFrequency, feedAmount, "new");
-            Toast.makeText(getApplicationContext(), "Reminder Set!", Toast.LENGTH_SHORT).show();
             calendar.add(Calendar.DATE, Integer.parseInt(feedFrequency));
             currentDateFeed = dateFormat.format(calendar.getTime());
             Intent homeIntent = new Intent(getApplicationContext(), HomeActivity.class);
             startActivity(homeIntent);
-
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -383,8 +383,7 @@ public class NewPlantActivity extends AppCompatActivity {
 
     private void callFeedDb2() {
         try {
-            dbHandler.addNewPlant(plantName, currentDateFeed, null, null, feedFrequency, feedAmount, "new");
-            Toast.makeText(getApplicationContext(), "Reminder Set!", Toast.LENGTH_SHORT).show();
+            dbHandler.addNewPlant(plantName+"feed", currentDateFeed, null, null, feedFrequency, feedAmount, "new");
             calendar.add(Calendar.DATE, Integer.parseInt(feedFrequency));
             currentDateFeed = dateFormat.format(calendar.getTime());
             Intent homeIntent = new Intent(getApplicationContext(), HomeActivity.class);
@@ -398,7 +397,6 @@ public class NewPlantActivity extends AppCompatActivity {
     private void callWaterFeedDb() {
         try {
             dbHandler.addNewPlant(plantName, currentDate, waterFrequency, waterAmount, null, feedAmount, "new");
-            Toast.makeText(getApplicationContext(), "Reminder Set!", Toast.LENGTH_SHORT).show();
             calendar.add(Calendar.DATE, Integer.parseInt(waterFrequency));
             currentDate = dateFormat.format(calendar.getTime());
 

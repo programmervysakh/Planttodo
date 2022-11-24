@@ -96,7 +96,7 @@ public class PlantRVAdapter extends RecyclerView.Adapter<PlantRVAdapter.ViewHold
 
             if (modal.getFeedFrequency() != null) {
                 holder.feedCard.setVisibility(View.VISIBLE);
-                holder.feedPlantNameText.setText(modal.getPlantName());
+                holder.feedPlantNameText.setText(modal.getPlantName().replaceAll("feed",""));
                 holder.feedPeriodicText.setText(modal.getFeedFrequency() + " day(s) . " + modal.getFeedAmount() + " gram");
                 if (currentDate.equals(modal.getCurrentDate())) {
 
