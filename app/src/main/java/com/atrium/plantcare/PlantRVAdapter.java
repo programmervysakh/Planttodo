@@ -1,8 +1,7 @@
-package com.example.plantcare;
+package com.atrium.plantcare;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -96,7 +96,7 @@ public class PlantRVAdapter extends RecyclerView.Adapter<PlantRVAdapter.ViewHold
 
             if (modal.getFeedFrequency() != null) {
                 holder.feedCard.setVisibility(View.VISIBLE);
-                holder.feedPlantNameText.setText(modal.getPlantName().replaceAll("feed",""));
+                holder.feedPlantNameText.setText(modal.getPlantName().replaceAll("`feed`",""));
                 holder.feedPeriodicText.setText(modal.getFeedFrequency() + " day(s) . " + modal.getFeedAmount() + " gram");
                 if (currentDate.equals(modal.getCurrentDate())) {
 

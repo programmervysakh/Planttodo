@@ -1,4 +1,4 @@
-package com.example.plantcare;
+package com.atrium.plantcare;
 
 import androidx.appcompat.app.AppCompatActivity;
 

@@ -1,7 +1,7 @@
-package com.example.plantcare;
+package com.atrium.plantcare;
 
-import static com.example.plantcare.R.drawable.back_greenlight;
-import static com.example.plantcare.R.drawable.back_grey;
+import static com.atrium.plantcare.R.drawable.back_greenlight;
+import static com.atrium.plantcare.R.drawable.back_grey;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,7 +25,6 @@ import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 public class NewPlantActivity extends AppCompatActivity {
     CardView mWaterCard, mFeedCard;
@@ -294,7 +293,7 @@ public class NewPlantActivity extends AppCompatActivity {
                         feedFrequency = null;
                         feedAmount = null;
 
-                        for (int i = 1; i <= 30 / Integer.parseInt(waterFrequency); i++) {
+                        for (int i = 1; i <= 365 / Integer.parseInt(waterFrequency); i++) {
 
                             Log.i("FAAAA", currentDate.toString());
                             callWaterDb();
@@ -312,7 +311,7 @@ public class NewPlantActivity extends AppCompatActivity {
                         waterFrequency = null;
                         plantName = mPlantNameText.getText().toString();
                         feedAmount = mFeedAmountText.getText().toString();
-                        for (int i = 1; i <= 30 / Integer.parseInt(feedFrequency); i++) {
+                        for (int i = 1; i <= 365 / Integer.parseInt(feedFrequency); i++) {
                             callFeedDb();
                         }
                         Toast.makeText(getApplicationContext(), "Reminder Set!", Toast.LENGTH_SHORT).show();
@@ -328,10 +327,10 @@ public class NewPlantActivity extends AppCompatActivity {
                         feedFrequency = mFeedFrequencyText.getText().toString();
                         feedAmount = mFeedAmountText.getText().toString();
                         int i;
-                        for (i = 1; i <= 30 / Integer.parseInt(waterFrequency); i++) {
+                        for (i = 1; i <= 365 / Integer.parseInt(waterFrequency); i++) {
                             callWaterFeedDb();
                         }
-                        for (int j = 1; j <= 30 / Integer.parseInt(feedFrequency); j++) {
+                        for (int j = 1; j <= 365 / Integer.parseInt(feedFrequency); j++) {
                             callFeedDb2();
                         }
 
@@ -370,6 +369,7 @@ public class NewPlantActivity extends AppCompatActivity {
 
     private void callFeedDb() {
         try {
+
             dbHandler.addNewPlant(plantName, currentDateFeed, waterFrequency, waterAmount, feedFrequency, feedAmount, "new");
             calendar.add(Calendar.DATE, Integer.parseInt(feedFrequency));
             currentDateFeed = dateFormat.format(calendar.getTime());
@@ -383,7 +383,7 @@ public class NewPlantActivity extends AppCompatActivity {
 
     private void callFeedDb2() {
         try {
-            dbHandler.addNewPlant(plantName+"feed", currentDateFeed, null, null, feedFrequency, feedAmount, "new");
+            dbHandler.addNewPlant(plantName+"`feed`", currentDateFeed, null, null, feedFrequency, feedAmount, "new");
             calendar.add(Calendar.DATE, Integer.parseInt(feedFrequency));
             currentDateFeed = dateFormat.format(calendar.getTime());
             Intent homeIntent = new Intent(getApplicationContext(), HomeActivity.class);

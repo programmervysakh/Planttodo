@@ -1,4 +1,4 @@
-package com.example.plantcare;
+package com.atrium.plantcare;
 
 public class PlantModal {
 

@@ -1,4 +1,4 @@
-package com.example.plantcare;
+package com.atrium.plantcare;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -75,7 +75,7 @@ public class TaskDetailsActivity extends AppCompatActivity {
                     dbHandler.updatePlants(name, date, "Done");
                 }
                 else {
-                    dbHandler.updatePlants(name+"feed", date, "Done");
+                    dbHandler.updatePlants(name+"`feed`", date, "Done");
 
                 }
 

@@ -1,11 +1,10 @@
-package com.example.plantcare;
+package com.atrium.plantcare;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -89,6 +88,8 @@ public class DBHandler extends SQLiteOpenHelper {
         // variable for content values.
         ContentValues values = new ContentValues();
 
+        db.beginTransaction();
+
         // on below line we are passing all values
         // along with its key and value pair.
         values.put(NAME_COL, plantName);
@@ -106,6 +107,8 @@ public class DBHandler extends SQLiteOpenHelper {
 
         // at last we are closing our
         // database after adding database.
+        db.setTransactionSuccessful();
+        db.endTransaction();
         db.close();
     }
 
@@ -190,6 +193,7 @@ public class DBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
+        db.beginTransaction();
         // on below line we are passing all values
         // along with its key and value pair.
         values.put(NAME_COL, name);
@@ -207,6 +211,9 @@ public class DBHandler extends SQLiteOpenHelper {
                 values,
                 NAME_COL + " = ? AND " + DATE_COL + " = ?",
                 new String[]{name, currentDate});
+
+        db.setTransactionSuccessful();
+        db.endTransaction();
         db.close();
     }
 
