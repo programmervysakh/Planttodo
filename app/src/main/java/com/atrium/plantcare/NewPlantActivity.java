@@ -293,7 +293,7 @@ public class NewPlantActivity extends AppCompatActivity {
                         feedFrequency = null;
                         feedAmount = null;
 
-                        for (int i = 1; i <= 365 / Integer.parseInt(waterFrequency); i++) {
+                        for (int i = 1; i <= 31 / Integer.parseInt(waterFrequency); i++) {
 
                             Log.i("FAAAA", currentDate.toString());
                             callWaterDb();
@@ -311,7 +311,7 @@ public class NewPlantActivity extends AppCompatActivity {
                         waterFrequency = null;
                         plantName = mPlantNameText.getText().toString();
                         feedAmount = mFeedAmountText.getText().toString();
-                        for (int i = 1; i <= 365 / Integer.parseInt(feedFrequency); i++) {
+                        for (int i = 1; i <= 31 / Integer.parseInt(feedFrequency); i++) {
                             callFeedDb();
                         }
                         Toast.makeText(getApplicationContext(), "Reminder Set!", Toast.LENGTH_SHORT).show();
@@ -327,10 +327,10 @@ public class NewPlantActivity extends AppCompatActivity {
                         feedFrequency = mFeedFrequencyText.getText().toString();
                         feedAmount = mFeedAmountText.getText().toString();
                         int i;
-                        for (i = 1; i <= 365 / Integer.parseInt(waterFrequency); i++) {
+                        for (i = 1; i <= 31 / Integer.parseInt(waterFrequency); i++) {
                             callWaterFeedDb();
                         }
-                        for (int j = 1; j <= 365 / Integer.parseInt(feedFrequency); j++) {
+                        for (int j = 1; j <= 31 / Integer.parseInt(feedFrequency); j++) {
                             callFeedDb2();
                         }
 
