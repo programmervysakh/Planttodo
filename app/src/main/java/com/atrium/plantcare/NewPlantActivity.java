@@ -292,12 +292,11 @@ public class NewPlantActivity extends AppCompatActivity {
                             if (mPlantNameText.getText().toString().trim().length() != 0 && mWaterAmountText.getText().toString().trim().length() != 0 && mWaterFrequencyText.getText().toString().trim().length() != 0) {
                                 waterFrequency = mWaterFrequencyText.getText().toString();
                                 waterAmount = mWaterAmountText.getText().toString();
-                                waterFrequency = mWaterFrequencyText.getText().toString();
                                 plantName = mPlantNameText.getText().toString();
                                 feedFrequency = null;
                                 feedAmount = null;
 
-                                for (int i = 1; i <= 365 / Integer.parseInt(waterFrequency); i++) {
+                                for (int i = 1; i <= 31 / Integer.parseInt(waterFrequency); i++) {
                                     Log.i("FAAAA", currentDate.toString());
                                     callWaterDb();
                                 }
@@ -317,9 +316,31 @@ public class NewPlantActivity extends AppCompatActivity {
                                 });
                             }
                         } else if (mFeedSwitch.isChecked() && !mWaterSwitch.isChecked()) {
-                            // Similar logic for feed switch
+                            if (mPlantNameText.getText().toString().trim().length() != 0 && mFeedFrequencyText.getText().toString().trim().length() != 0 && mFeedAmountText.getText().toString().trim().length() != 0) {
+                                feedFrequency = mFeedFrequencyText.getText().toString();
+                                waterAmount = null;
+                                waterFrequency = null;
+                                plantName = mPlantNameText.getText().toString();
+                                feedAmount = mFeedAmountText.getText().toString();
+                                for (int i = 1; i <= 31 / Integer.parseInt(feedFrequency); i++) {
+                                    callFeedDb();
+                                }
+                            }
                         } else if (mFeedSwitch.isChecked() && mWaterSwitch.isChecked()) {
-                            // Similar logic for both switches
+                            if (mPlantNameText.getText().toString().trim().length() != 0 && mWaterFrequencyText.getText().toString().trim().length() != 0 && mWaterAmountText.getText().toString().trim().length() != 0 && mFeedFrequencyText.getText().toString().trim().length() != 0 && mFeedAmountText.getText().toString().trim().length() != 0) {
+                                waterAmount = mWaterAmountText.getText().toString();
+                                waterFrequency = mWaterFrequencyText.getText().toString();
+                                plantName = mPlantNameText.getText().toString();
+                                feedFrequency = mFeedFrequencyText.getText().toString();
+                                feedAmount = mFeedAmountText.getText().toString();
+                                int i;
+                                for (i = 1; i <= 31 / Integer.parseInt(waterFrequency); i++) {
+                                    callWaterFeedDb();
+                                }
+                                for (int j = 1; j <= 31 / Integer.parseInt(feedFrequency); j++) {
+                                    callFeedDb2();
+                                }
+                            }
                         } else {
                             runOnUiThread(new Runnable() {
                                 @Override
@@ -359,7 +380,7 @@ public class NewPlantActivity extends AppCompatActivity {
     private void callFeedDb() {
         try {
 
-            dbHandler.addNewPlant(plantName, currentDateFeed, waterFrequency, waterAmount, feedFrequency, feedAmount, "new");
+            dbHandler.addNewPlant(plantName, currentDateFeed, null, null, feedFrequency, feedAmount, "new");
             calendar.add(Calendar.DATE, Integer.parseInt(feedFrequency));
             currentDateFeed = dateFormat.format(calendar.getTime());
             Intent homeIntent = new Intent(getApplicationContext(), HomeActivity.class);
