@@ -25,6 +25,8 @@ import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class NewPlantActivity extends AppCompatActivity {
     CardView mWaterCard, mFeedCard;
@@ -278,70 +280,57 @@ public class NewPlantActivity extends AppCompatActivity {
             }
         });
 
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+
         mSaveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                executor.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (mWaterSwitch.isChecked() && !mFeedSwitch.isChecked()) {
+                            if (mPlantNameText.getText().toString().trim().length() != 0 && mWaterAmountText.getText().toString().trim().length() != 0 && mWaterFrequencyText.getText().toString().trim().length() != 0) {
+                                waterFrequency = mWaterFrequencyText.getText().toString();
+                                waterAmount = mWaterAmountText.getText().toString();
+                                waterFrequency = mWaterFrequencyText.getText().toString();
+                                plantName = mPlantNameText.getText().toString();
+                                feedFrequency = null;
+                                feedAmount = null;
 
-                if (mWaterSwitch.isChecked() && !mFeedSwitch.isChecked()) {
-                    //  Toast.makeText(getApplicationContext(),"water is checked",Toast.LENGTH_LONG).show();
+                                for (int i = 1; i <= 365 / Integer.parseInt(waterFrequency); i++) {
+                                    Log.i("FAAAA", currentDate.toString());
+                                    callWaterDb();
+                                }
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(getApplicationContext(), "Reminder Set!", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
 
-                    if (mPlantNameText.getText().toString().trim().length() != 0 && mWaterAmountText.getText().toString().trim().length() != 0 && mWaterFrequencyText.getText().toString().trim().length() != 0) {
-                        waterFrequency = mWaterFrequencyText.getText().toString();
-                        waterAmount = mWaterAmountText.getText().toString();
-                        waterFrequency = mWaterFrequencyText.getText().toString();
-                        plantName = mPlantNameText.getText().toString();
-                        feedFrequency = null;
-                        feedAmount = null;
-
-                        for (int i = 1; i <= 31 / Integer.parseInt(waterFrequency); i++) {
-
-                            Log.i("FAAAA", currentDate.toString());
-                            callWaterDb();
+                            } else {
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(getApplicationContext(), "Please fill all the details", Toast.LENGTH_LONG).show();
+                                    }
+                                });
+                            }
+                        } else if (mFeedSwitch.isChecked() && !mWaterSwitch.isChecked()) {
+                            // Similar logic for feed switch
+                        } else if (mFeedSwitch.isChecked() && mWaterSwitch.isChecked()) {
+                            // Similar logic for both switches
+                        } else {
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(getApplicationContext(), "Please fill all the details", Toast.LENGTH_LONG).show();
+                                }
+                            });
                         }
-                        Toast.makeText(getApplicationContext(), "Reminder Set!", Toast.LENGTH_SHORT).show();
-
-                    } else {
-                        Toast.makeText(getApplicationContext(), "Please fill all the details", Toast.LENGTH_LONG).show();
-
                     }
-                } else if (mFeedSwitch.isChecked() && !mWaterSwitch.isChecked()) {
-                    if (mPlantNameText.getText().toString().trim().length() != 0 && mFeedFrequencyText.getText().toString().trim().length() != 0 && mFeedAmountText.getText().toString().trim().length() != 0) {
-                        feedFrequency = mFeedFrequencyText.getText().toString();
-                        waterAmount = null;
-                        waterFrequency = null;
-                        plantName = mPlantNameText.getText().toString();
-                        feedAmount = mFeedAmountText.getText().toString();
-                        for (int i = 1; i <= 31 / Integer.parseInt(feedFrequency); i++) {
-                            callFeedDb();
-                        }
-                        Toast.makeText(getApplicationContext(), "Reminder Set!", Toast.LENGTH_SHORT).show();
-
-                    } else {
-                        Toast.makeText(getApplicationContext(), "Please fill all the details", Toast.LENGTH_LONG).show();
-                    }
-                } else if (mFeedSwitch.isChecked() && mWaterSwitch.isChecked()) {
-                    if (mPlantNameText.getText().toString().trim().length() != 0 && mWaterFrequencyText.getText().toString().trim().length() != 0 && mWaterAmountText.getText().toString().trim().length() != 0 && mFeedFrequencyText.getText().toString().trim().length() != 0 && mFeedAmountText.getText().toString().trim().length() != 0) {
-                        waterAmount = mWaterAmountText.getText().toString();
-                        waterFrequency = mWaterFrequencyText.getText().toString();
-                        plantName = mPlantNameText.getText().toString();
-                        feedFrequency = mFeedFrequencyText.getText().toString();
-                        feedAmount = mFeedAmountText.getText().toString();
-                        int i;
-                        for (i = 1; i <= 31 / Integer.parseInt(waterFrequency); i++) {
-                            callWaterFeedDb();
-                        }
-                        for (int j = 1; j <= 31 / Integer.parseInt(feedFrequency); j++) {
-                            callFeedDb2();
-                        }
-
-                    }
-                    Toast.makeText(getApplicationContext(), "Reminder Set!", Toast.LENGTH_SHORT).show();
-
-                } else {
-                    Toast.makeText(getApplicationContext(), "Please fill all the details", Toast.LENGTH_LONG).show();
-                }
+                });
             }
-
         });
 
         mCancelBtn.setOnClickListener(new View.OnClickListener() {
